@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<baseviews:ViewBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:baseviews="clr-namespace:ExpenseTracker.Views.Base"
+                    xmlns:models="clr-namespace:ExpenseTracker.Models"
+                    xmlns:viewmodels="clr-namespace:ExpenseTracker.ViewModels"
+             x:Class="ExpenseTracker.Views.OnBoardingScreen"
+                    x:TypeArguments="viewmodels:OnBoardingScreenViewModel"
+                    x:DataType="viewmodels:OnBoardingScreenViewModel"
+             Title="OnBoardingPage">
+
+
+    <baseviews:ViewBase.PageContent>
+        <Grid RowDefinitions="*,Auto">
+            <CarouselView Grid.Row="0" ItemsSource="{Binding OnBoardingScreens}"
+                      IndicatorView="onBoardingIndicator" Loop="False">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate x:DataType="models:OnBoardingScreenModel">
+                        <VerticalStackLayout>
+                            <Image Source="{Binding Image}" Aspect="AspectFill" />
+
+                            <VerticalStackLayout Spacing="20" Margin="40,40,40,0" HorizontalOptions="CenterAndExpand">
+                                <Label Text="{Binding Title}" 
+                                       TextColor="{StaticResource Primary}"
+                                       FontFamily="RubikMedium" 
+                                       FontSize="28" 
+                                       HorizontalTextAlignment="Center" />
+                                <Label Text="{Binding Description}" 
+                                       TextColor="{StaticResource Secondary}"
+                                       FontSize="20" 
+                                       HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <IndicatorView Grid.Row="1" Margin="0,0,0,10" x:Name="onBoardingIndicator" VerticalOptions="End" HorizontalOptions="Center"/>
+        </Grid>
+    </baseviews:ViewBase.PageContent>
+</baseviews:ViewBase>
