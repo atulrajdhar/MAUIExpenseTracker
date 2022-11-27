@@ -7,7 +7,7 @@
     <!-- Colors -->
     <Color x:Key="PageBackgroundColor">#262626</Color>
     <Color x:Key="DarkColor">#2F2F2F</Color>
-    <Color x:Key="LightColor">#979797</Color>
+    <Color x:Key="LightColor">#A6A4A4</Color>
     <Color x:Key="DarkTextColor">#151515</Color>
     <Color x:Key="LightTextColor">#F5F5F5</Color>
 
@@ -15,6 +15,7 @@
     
     
     <Color x:Key="Primary">#6570F2</Color>
+    <Color x:Key="GradientTop">#6BA5F7</Color>
     <Color x:Key="Secondary">#8B8787</Color>
     <Color x:Key="Tertiary">#343434</Color>
     <Color x:Key="White">#FFFFFF</Color>

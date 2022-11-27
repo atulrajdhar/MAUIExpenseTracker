@@ -4,20 +4,53 @@
              xmlns:baseviews="clr-namespace:ExpenseTracker.Views.Base"
              xmlns:viewmodels="clr-namespace:ExpenseTracker.ViewModels"
              x:Class="ExpenseTracker.Views.LoginScreen"
-             x:TypeArguments="viewmodels:LoginScreenViewModel"             
+             x:TypeArguments="viewmodels:LoginScreenViewModel"                    
              Title="LoginScreen">
     <baseviews:ViewBase.PageContent>
-        
-        
-        
-        <VerticalStackLayout Spacing="24" Margin="10">            
-            <Frame BorderColor="{StaticResource Secondary}" Padding="0" CornerRadius="0" HorizontalOptions="FillAndExpand">
-                <Entry Placeholder="Email" Keyboard="Email" FontFamily="RubikRegular" FontSize="18"  />
-            </Frame>
 
-            <Frame BorderColor="{StaticResource Secondary}" Padding="0" CornerRadius="0" HorizontalOptions="FillAndExpand">
-                <Entry Placeholder="Password" IsPassword="True" FontSize="18" />
-            </Frame>
-        </VerticalStackLayout>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+            <Border Grid.Row="0"                     
+                     HeightRequest="{OnPlatform iOS=76, Default=100}" 
+                     HorizontalOptions="FillAndExpand">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="{StaticResource Primary}" Offset="0.1" />
+                        <GradientStop Color="{StaticResource GradientTop}" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Label Grid.Row="0" VerticalOptions="End" Margin="0,0,0,10" Text="Login" FontFamily="RubikBold" FontSize="20" TextColor="White" HorizontalTextAlignment="Center"/>
+            <VerticalStackLayout Grid.Row="1" Spacing="9" Margin="10,41,10,13">
+                <VerticalStackLayout Spacing="24">
+                    <Frame BorderColor="{StaticResource Secondary}" Padding="0" CornerRadius="0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Email" Keyboard="Email" FontFamily="RubikRegular" FontSize="18"  />
+                    </Frame>
+
+                    <Frame BorderColor="{StaticResource Secondary}" Padding="0" CornerRadius="0" HorizontalOptions="FillAndExpand">
+                        <Entry Placeholder="Password" IsPassword="True" FontSize="18" />
+                    </Frame>
+                </VerticalStackLayout>
+                <Label Text="Forgot Password?" TextColor="{StaticResource LightColor}" FontSize="15" FontFamily="RubikMedium" HorizontalOptions="End" />
+            </VerticalStackLayout>
+            <Button Grid.Row="2" 
+                    Text="LOGIN" 
+                    TextColor="White"                     
+                    FontFamily="RubikMedium" 
+                    HeightRequest="45"
+                    HorizontalOptions="FillAndExpand" 
+                    Margin="10,0"
+                    CornerRadius="0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="{StaticResource Primary}" Offset="0.1" />
+                        <GradientStop Color="{StaticResource GradientTop}" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <HorizontalStackLayout Grid.Row="3" Spacing="5" Margin="0,20,0,0" HorizontalOptions="CenterAndExpand">
+                <Label Text="New User?" TextColor="{StaticResource LightColor}" FontSize="15" FontFamily="RubikMedium" />
+                <Label Text="Signup" TextColor="{StaticResource Primary}" FontSize="15" FontFamily="RubikMedium" />
+            </HorizontalStackLayout>
+        </Grid>
     </baseviews:ViewBase.PageContent>
 </baseviews:ViewBase>
