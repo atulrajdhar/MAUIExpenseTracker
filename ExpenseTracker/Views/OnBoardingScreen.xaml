@@ -11,7 +11,7 @@
 
 
     <baseviews:ViewBase.PageContent>
-        <Grid RowDefinitions="*,Auto">
+        <Grid RowDefinitions="*,Auto,Auto" Margin="0,0,0,20">
             <CarouselView Grid.Row="0" ItemsSource="{Binding OnBoardingScreens}"
                       IndicatorView="onBoardingIndicator" Loop="False">
                 <CarouselView.ItemTemplate>
@@ -35,7 +35,21 @@
                 </CarouselView.ItemTemplate>
             </CarouselView>
 
-            <IndicatorView Grid.Row="1" Margin="0,0,0,10" x:Name="onBoardingIndicator" VerticalOptions="End" HorizontalOptions="Center"/>
+            <IndicatorView Grid.Row="1" 
+                           Margin="0,0,0,10" 
+                           x:Name="onBoardingIndicator" 
+                           VerticalOptions="End" 
+                           HorizontalOptions="Center" 
+                           SelectedIndicatorColor="{StaticResource Primary}" />
+
+            <Button Text="Let's Get Started..." 
+                    FontFamily="RubikMedium"
+                    Grid.Row="2" 
+                    Margin="10" 
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding StartAppCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White" />
         </Grid>
     </baseviews:ViewBase.PageContent>
 </baseviews:ViewBase>

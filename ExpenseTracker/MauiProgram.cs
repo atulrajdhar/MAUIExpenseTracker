@@ -37,13 +37,20 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
+		RegisterServices(builder.Services);
 		RegisterViewModels(builder.Services);
 
 		return builder.Build();
 	}
 
+    private static void RegisterServices(IServiceCollection services)
+    {
+		services.AddSingleton<ISettingsService, SettingsService>();
+    }
+
     private static void RegisterViewModels(IServiceCollection services)
     {
 		services.AddSingleton<OnBoardingScreenViewModel>();
+        services.AddSingleton<LoginScreenViewModel>();
     }
 }

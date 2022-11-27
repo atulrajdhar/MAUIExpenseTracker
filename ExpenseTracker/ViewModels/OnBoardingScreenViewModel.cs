@@ -1,10 +1,13 @@
 ﻿namespace ExpenseTracker.ViewModels;
 public partial class OnBoardingScreenViewModel : AppViewModelBase
 {
+
+    private readonly ISettingsService _settingsService;
+
     [ObservableProperty]
     private ObservableCollection<OnBoardingScreenModel> onBoardingScreens;
 
-    public OnBoardingScreenViewModel()
+    public OnBoardingScreenViewModel(ISettingsService settingsService)
     {
         OnBoardingScreens = new ObservableCollection<OnBoardingScreenModel>
         {
@@ -29,5 +32,14 @@ public partial class OnBoardingScreenViewModel : AppViewModelBase
                     Description = "Transform your SMS inbox into a daily interactive reports."
                 }
         };
+
+        this._settingsService = settingsService;
+    }
+
+    [RelayCommand]
+    private async Task StartApp()
+    {
+        await _settingsService.Save("ShowOnBoardingScreen", false);        
+        await NavigationService.PushAsync(new LoginScreen());
     }
 }

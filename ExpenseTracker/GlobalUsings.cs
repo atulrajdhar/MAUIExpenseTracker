@@ -8,4 +8,6 @@ global using ExpenseTracker.Views.Base;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using ExpenseTracker.Models;
 global using System.Collections.ObjectModel;
-
+global using ExpenseTracker.IServices;
+global using ExpenseTracker.Services;
+global using ExpenseTracker.Views;
