@@ -4,6 +4,9 @@ using Microsoft.UI.Windowing;
 using Windows.Graphics;
 #endif
 
+using Android.Content.Res;
+using Microsoft.Maui.Controls.Compatibility.Platform.Android;
+
 namespace ExpenseTracker;
 
 public partial class App : Application
@@ -40,6 +43,27 @@ public partial class App : Application
 			MainPage = new NavigationPage(new OnBoardingScreen());
 		else
 			MainPage = new NavigationPage(new LoginScreen());
+
+        Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderline", (handler, view) =>
+{
+
+#if ANDROID
+    handler.PlatformView.BackgroundTintList = ColorStateList.ValueOf(Colors.Transparent.ToAndroid());
+#elif IOS || MACCATALYST
+// TODO: REPLACE THIS CODE WITH IOS AND MACCATALYST NATIVE CODE
+        handler.PlatformView.EditingDidBegin += (s, e) =>
+        {
+            handler.PlatformView.PerformSelector(new ObjCRuntime.Selector("selectAll"), null, 0.0f);
+        };
+#elif WINDOWS
+// TODO: REPLACE THIS CODE WITH WINDOWS NATIVE CODE
+        handler.PlatformView.GotFocus += (s, e) =>
+        {
+            handler.PlatformView.SelectAll();
+        };
+#endif
+    
+});
 	}
 
 	private async Task<bool> LoadPreferences()
