@@ -30,7 +30,11 @@
                         <Entry Placeholder="Password" PlaceholderColor="{StaticResource Gray500}" IsPassword="True" FontSize="18" TextColor="Black" />
                     </Frame>
                 </VerticalStackLayout>
-                <Label Text="Forgot Password?" TextColor="{StaticResource LightColor}" FontSize="15" FontFamily="RubikMedium" HorizontalOptions="End" />
+                <Label Text="Forgot Password?" TextColor="{StaticResource LightColor}" FontSize="15" FontFamily="RubikMedium" HorizontalOptions="End">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
             </VerticalStackLayout>
             <Button Grid.Row="2" 
                     Text="LOGIN" 
@@ -49,7 +53,11 @@
             </Button>
             <HorizontalStackLayout Grid.Row="3" Spacing="5" Margin="0,20,0,0" HorizontalOptions="CenterAndExpand">
                 <Label Text="New User?" TextColor="{StaticResource LightColor}" FontSize="15" FontFamily="RubikMedium" />
-                <Label Text="Signup" TextColor="{StaticResource Primary}" FontSize="15" FontFamily="RubikMedium" />
+                <Label Text="Signup" TextColor="{StaticResource Primary}" FontSize="15" FontFamily="RubikMedium">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RegisterUserCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
             </HorizontalStackLayout>
         </Grid>
     </baseviews:ViewBase.PageContent>

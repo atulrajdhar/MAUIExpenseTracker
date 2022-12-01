@@ -52,5 +52,7 @@ public static class MauiProgram
     {
 		services.AddSingleton<OnBoardingScreenViewModel>();
         services.AddSingleton<LoginScreenViewModel>();
+        services.AddSingleton<RegisterUserViewModel>();
+        services.AddSingleton<ResetPasswordViewModel>();
     }
 }
